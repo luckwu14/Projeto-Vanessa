@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TeleConsulta - Cadastro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="img\favicon.png" type="image/png">
+</head>
+<body>
+  <!--Barra de Navegação-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">TeleConsulta</a>
+      <div class="collapse navbar-collapse" id="nav4">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="servicos.html">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link active btn btn-primary text-white ms-2" href="cadastro.html">Cadastrar</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <h2>Cadastro de Paciente</h2>
+    <form method="post" action="#" id="cadForm" class="row g-3 needs-validation">
+        <!--Informações Pessoais-->
+      <div class="col-md-6">
+        <label class="form-label">Nome completo</label>
+        <input type="text" class="form-control" name="nome" id="nome" placeholder="Informe seu nome" required><br>
+        <div class="invalid-feedback">Informe seu nome completo.</div>
+      </div>
+        <!--Data-->
+      <div class="col-md-3">
+        <label class="form-label">Data de nascimento</label>
+        <input type="date" class="form-control" id="nascimento" required>
+        <div class="invalid-feedback">Informe sua data de nascimento.</div>
+      </div>
+
+      <!--Gênero-->
+      <div class="col-md-3">
+        <label class="form-label">Gênero</label>
+        <select class="form-select" id="genero">
+          <option value="">Selecione</option>
+          <option value="M">Masculino</option>
+          <option value="F">Feminino</option>
+          <option value="O">Outro</option>
+        </select>
+      </div>
+
+      <!--CPF-->
+      <div class="col-md-4">
+        <label class="form-label" for="cpf">CPF</label>
+        <input type="text" class="form-control" id="cpf" required>
+        <div class="invalid-feedback">CPF inválido. Digite apenas números (11 dígitos).</div>
+      </div>
+
+      <!--Email-->
+      <div class="col-md-8">
+        <label class="form-label" for="email">E-mail</label>
+        <input type="email" class="form-control" name="email" id="email" required
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}">
+        <div class="invalid-feedback">E-mail inválido.</div>
+      </div>
+
+      <!--Telefone-->
+      <div class="col-md-6">
+        <label class="form-label" for="phonenum">Telefone</label>
+        <input type="tel" class="form-control" id="phonenum" required
+            pattern="^\d{1}-\d{4}-\d{4}$" 
+            placeholder="Insira seu número de telefone (formato: x-xxxx-xxxx)">
+        <div class="invalid-feedback">Insira seu número de telefone (formato: x-xxxx-xxxx).</div>
+      </div>
+
+      <!--Endereço-->
+      <div class="col-12">
+        <label class="form-label">Endereço</label>
+        <input type="text" class="form-control" id="endereco" required>
+      </div>
+
+      <!--Qual plano de saúde-->
+      <div class="col-md-6">
+        <label class="form-label">Plano de saúde</label>
+        <input type="text" class="form-control" id="plano">
+      </div>
+
+      <!--Idioma-->
+      <div class="col-md-6">
+        <label class="form-label">Idioma preferido</label>
+        <select class="form-select" id="idioma">
+          <option value="pt">Português</option>
+          <option value="en">Inglês</option>
+          <option value="es">Espanhol</option>
+        </select>
+      </div>
+
+      <!--Saúde Paciente-->
+      <div class="col-12">
+        <label class="form-label">Alergias / Doenças crônicas / Medicamentos</label>
+        <textarea class="form-control" id="saude" rows="2"></textarea>
+      </div>
+
+      <!--Senha-->
+      <div class="col-md-6">
+        <label class="form-label">Senha</label>
+        <input type="password" class="form-control" name="senha" id="senha" minlength="8"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+        <div class="invalid-feedback">Senha deve ter ao menos 8 caracteres, pelo menos, um número, uma letra maiúscula e uma minúscula.</div>
+      </div>
+
+      <!--Confirmação de senha-->
+      <div class="col-md-6">
+        <label class="form-label">Confirmar senha</label>
+        <input type="password" class="form-control" name="confSenha" id="confSenha" minlength="8" required>
+        <div class="invalid-feedback">Confirme a senha.</div>
+      </div>
+
+      <!--Upload documento-->
+      <div class="col-md-6">
+        <label class="form-label">Upload de documento (PDF / PNG / JPG)</label>
+        <input type="file" class="form-control" id="documento" accept="application/pdf,image/*">
+        <div class="form-text">Máx. 5MB. Arquivo será enviado ao servidor em implementação real.</div>
+      </div>
+
+      <!--Especialidade desejadas-->
+      <div class="col-md-6">
+        <label class="form-label">Especialidades de interesse</label>
+        <input type="text" class="form-control" id="especialidades" placeholder="ex: Clínica Geral; Pediatria" required>
+      </div>
+
+      <!--Termo de uso-->
+      <div class="col-12 form-check">
+        <input class="form-check-input" type="checkbox" id="termos" required>
+        <label class="form-check-label">Aceito os termos de uso e política de privacidade</label>
+        <div class="invalid-feedback">Você precisa aceitar os termos.</div>
+      </div>
+
+      <!--butão cadastrar-->
+      <div class="col-12">
+        <button class="btn btn-primary mt-3" type="submit">Cadastrar</button>
+        <div id="formMsg" class="mt-3"></div>
+      </div>
+    </form>
+  </main>
+
+  <footer class="bg-light text-center py-3">
+    <small>© 2025 TeleConsulta</small>
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets\css\assets\js\app.js"></script>
+</body>
+</html>
